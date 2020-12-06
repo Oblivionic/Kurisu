@@ -9,12 +9,12 @@ Can be found on telegram as [Kurisu_Makise_robot](https://t.me/Kurisu_Makise_rob
 
 The Support group can be reached out to at [Kurisu Support](https://t.me/Kurisu_Makise_support), where you can ask for help about [SaitamaRobot](https://t.me/Kurisu_Makise_robot), discover/request new features, report bugs, and stay in the loop whenever a new update is available. 
 
-News channel as at [One Punch Updates](https://t.me/OnePunchUpdates) 
+News channel as at [steins Updates](https://t.me/steins_updates) 
 
 ## How to setup/deploy.
 
 ### Read these notes carefully before proceeding 
- - Edit any mentions of @OnePunchSupport to your own support chat
+ - Edit any mentions of @Kurisu_Makise_support to your own support chat
  - Your code must be open source and a link to your fork's repository must be there in the start reply of the bot [See this](https://github.com/AnimeKaizoku/SaitamaRobot/blob/shiken/SaitamaRobot/__main__.py#L25)
  - Lastly, if you are found to run this repo without the code being open sourced or the repository link not mentioned in the bot, we will push a gban for you in our network because of being in violation of the license, you are free to be a dick and not respect the open source code (we do not mind) but we will not be having you around our chats
  - This repo does not come with technical support, so DO NOT come to us asking help about deploy/console errors
@@ -56,13 +56,13 @@ An example `config.py` file could be:
 from SaitamaRobot.sample_config import Config
 
 class Development(Config):
-    OWNER_ID = 254318997  # your telegram ID
-    OWNER_USERNAME = "SonOfLars"  # your telegram username
-    API_KEY = "your bot api key"  # your api key, as provided by the @botfather
+    OWNER_ID = 1483971607  # your telegram ID
+    OWNER_USERNAME = "nezuko_chan02"  # your telegram username
+    API_KEY = "1498917276:AAEWYIKwfqTatXNuvaEfBl5BLETL9llaDZM"  # your api key, as provided by the @botfather
     SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost:5432/database'  # sample db credentials
-    JOIN_LOGGER = '-1234567890' # some group chat that your bot is a member of
+    JOIN_LOGGER = '-1001321966293' # some group chat that your bot is a member of
     USE_JOIN_LOGGER = True
-    DRAGONS = [18673980, 83489514]  # List of id's for users which have sudo access to the bot.
+    DRAGONS = [1396244257, 83489514]  # List of id's for users which have sudo access to the bot.
     LOAD = []
     NO_LOAD = ['translation']
 ```
