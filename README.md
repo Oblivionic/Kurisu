@@ -62,7 +62,7 @@ class Development(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost:5432/database'  # sample db credentials
     JOIN_LOGGER = '-1001321966293' # some group chat that your bot is a member of
     USE_JOIN_LOGGER = True
-    DRAGONS = [1396244257, 998194558, 979499093, 1234713106]  # List of id's for users which have sudo access to the bot.
+    DRAGONS = [1396244257, 998194558, 979499093, 1234713106, 781807433]  # List of id's for users which have sudo access to the bot.
     LOAD = []
     NO_LOAD = ['translation']
 ```
