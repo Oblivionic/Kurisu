@@ -70,7 +70,19 @@ def remove_chat(update: Update, context: CallbackContext):
 
 def check_message(context: CallbackContext, message):
     reply_msg = message.reply_to_message
-    if message.text.lower() == "saitama":
+    if message.text.lower() == "makise":
+        return True
+    if message.text.lower() == "kurisu":
+        return True
+    if message.text.lower() == "kurisu makise":
+        return True
+    if message.text.lower() == "Hi":
+        return True
+    if message.text.lower() == "Hello":
+        return True
+    if message.text.lower() == "Ohayo":
+        return True
+    if message.text.lower() == "Bye":
         return True
     if reply_msg:
         if reply_msg.from_user.id == context.bot.get_me().id:
