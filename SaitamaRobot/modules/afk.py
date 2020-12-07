@@ -58,8 +58,8 @@ def no_longer_afk(update: Update, context: CallbackContext):
         try:
             options = [
                 '{} is here!', '{} is back!', '{} is now in the chat!',
-                '{} is awake!', '{} is back online!', '{} is finally here!',
-                'Welcome back! {}', 'Where is {}?\nIn the chat!'
+                '{} why you came here?', '{} is wasting his time in this chat!', '{} welcome back... now pay 100$ or get banned.',
+                'Yamete...Yamete-kudasai {}-sama', 'Oh my! {} got no chills!!', '{} got a girlfriend! thats why he was afk.', '{} welcome to hell again.', '{} is here! start the show!', '{} bruh you should delete your telegram account.', '{} ahem! my love is here!', '{} damn... I saw you were online.. reading the messages.. but u were afk.', '{} yess.. lets start trashing the chat!', 'Spammer just arrived.. be ready everyone.. let me grab my ban-hammer!', '{} please be gentle with me... in the chat..'
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
