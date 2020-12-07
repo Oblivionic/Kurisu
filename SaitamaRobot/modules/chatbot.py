@@ -76,13 +76,13 @@ def check_message(context: CallbackContext, message):
         return True
     if message.text.lower() == "kurisu makise":
         return True
-    if message.text.lower() == "Hi":
+    if message.text.lower() == "hi":
         return True
-    if message.text.lower() == "Hello":
+    if message.text.lower() == "hello":
         return True
-    if message.text.lower() == "Ohayo":
+    if message.text.lower() == "ohayo":
         return True
-    if message.text.lower() == "Bye":
+    if message.text.lower() == "bye":
         return True
     if reply_msg:
         if reply_msg.from_user.id == context.bot.get_me().id:
