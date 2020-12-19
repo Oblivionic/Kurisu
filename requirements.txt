@@ -29,4 +29,4 @@ spamwatch
 alphabet_detector
 pyrate-limiter
 cachetools
-nekos
+nekos.py
