@@ -29,4 +29,5 @@ spamwatch
 alphabet_detector
 pyrate-limiter
 cachetools
+fontTools
 nekos.py
