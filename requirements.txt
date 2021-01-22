@@ -31,3 +31,4 @@ pyrate-limiter
 cachetools
 fontTools
 nekos.py
+youtube_dl
