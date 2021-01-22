@@ -1,6 +1,10 @@
 import html
 import random
 import time
+from pathlib import Path
+import glob
+import requests as r
+import urllib.request
 
 import SaitamaRobot.modules.fun_strings as fun_strings
 import SaitamaRobot.modules.helper_funcs.fun_strings as fun
@@ -257,6 +261,19 @@ def weebify(update: Update, context: CallbackContext):
     else:
         message.reply_text(string)
 
+@run_async
+def meme(update: Update, context: CallbackContext):
+    msg = update.effective_message
+    meme = r.get("https://meme-api.herokuapp.com/gimme/Animemes/").json()
+    image = meme.get("url")
+    caption = meme.get("title")
+    if not image:
+        msg.reply_text("No URL was received from the API!")
+        return
+    msg.reply_photo(
+                photo=image, caption=caption)
+
+
 
 __help__ = """
  • `/runs`*:* reply a random string from an array of replies
@@ -266,6 +283,7 @@ __help__ = """
  • `/decide`*:* Randomly answers yes/no/maybe
  • `/toss`*:* Tosses A coin
  • `/bluetext`*:* check urself :V
+ • `/meme *:* random anime memes
  • `/roll`*:* Roll a dice
  • `/rlg`*:* Join ears,nose,mouth and create an emo ;-;
  • `/shout <keyword>`*:* write anything you want to give loud shout
@@ -296,8 +314,9 @@ GDMORNING_HANDLER = DisableAbleMessageHandler(
 GDNIGHT_HANDLER = DisableAbleMessageHandler(
     Filters.regex(r"(?i)(good night)"), goodnight, friendly="goodnight"
 )
+MEME_HANDLER = DisableAbleCommandHandler("meme", meme)
 
-
+dispatcher.add_handler(MEME_HANDLER)
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(SHOUT_HANDLER)
 dispatcher.add_handler(SANITIZE_HANDLER)
