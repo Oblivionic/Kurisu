@@ -65,7 +65,7 @@ HELP_STRINGS = """
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 KURISU_IMG = "https://telegra.ph/file/083b9d84ba26180dcbffb.gif"
-KURISUIMGSTART = "https://telegra.ph/file/ff5a0a505387825f4e2c6.mp4"
+KURISUIMGSTART = "https://telegra.ph/file/bd01a439fefb53170b36f.gif"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 You can donate to the original writer of the Base code, Paul
