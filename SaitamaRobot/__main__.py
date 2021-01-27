@@ -179,7 +179,7 @@ def start(update: Update, context: CallbackContext):
             first_name = update.effective_user.first_name
             update.effective_message.reply_animation(
                 KURISU_IMG,
-                PM_START_TEXT.format(
+                caption=PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(context.bot.first_name)),
                 parse_mode=ParseMode.MARKDOWN,
@@ -531,7 +531,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am now online!](https://telegra.ph/file/26aeb38f38eb8c819e423.mp4)")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am now online!](https://telegra.ph/file/26aeb38f38eb8c819e423.mp4)", parse_mode=ParseMode.MARKDOWN)
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!")
