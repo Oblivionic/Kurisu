@@ -57,7 +57,7 @@ PM_START_TEXT = """
 """
 
 HELP_STRINGS = """
-[Kurisu](https://telegra.ph/file/1f6e348461d5a7eed0df7.gif) comes with :-
+💝 [Kurisu](https://telegra.ph/file/1f6e348461d5a7eed0df7.gif) 💝 comes with :-
 *AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters* and *NSFW* functions!
 • __All commands can either be used with__ `/` __or__ `!`.
 """.format(
@@ -207,7 +207,7 @@ def start(update: Update, context: CallbackContext):
                      [
                         InlineKeyboardButton(
                              text="Help & Commands",
-                             callback_data="help_back")      
+                             url="https://t.me/Kurisu_Makise_Robot?start=help")      
                     ]]))
     else:
         update.effective_message.reply_video(
