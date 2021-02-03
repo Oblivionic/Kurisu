@@ -201,10 +201,15 @@ def start(update: Update, context: CallbackContext):
                     ],
                      [
                         InlineKeyboardButton(
-                             text="🀄️ IAS - Anime Chatroom 🀄️",
-                             url="https://t.me/animechatsofficialgrp")                    
+                             text="🔘 Getting started guid",
+                             url="https://t.me/Steinsupdates/7")                    
                     ],
                      [
+                        InlineKeyboardButton(
+                             text="🀄️ IAS - Anime Chatroom 🀄️",
+                             url="https://t.me/animechatsofficialgrp")                    
+                    ],                     
+                      [
                         InlineKeyboardButton(
                              text="Help & Commands",
                              url="https://t.me/Kurisu_Makise_Robot?start=help")      
