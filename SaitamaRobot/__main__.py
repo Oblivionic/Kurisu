@@ -201,7 +201,7 @@ def start(update: Update, context: CallbackContext):
                     ],
                      [
                         InlineKeyboardButton(
-                             text="🔘 Getting started guid",
+                             text="🔘 Getting Started Guide",
                              url="https://t.me/Steinsupdates/7")                    
                     ],
                      [
