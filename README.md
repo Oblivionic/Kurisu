@@ -1,6 +1,6 @@
 ![Kurisu](https://wallpapercave.com/wp/wp4088452.jpg)
 # Kurisu Robot 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51)](https://app.codacy.com/gh/AnimeKaizoku/SaitamaRobot?utm_source=github.com&utm_medium=referral&utm_content=AnimeKaizoku/SaitamaRobot&utm_campaign=Badge_Grade_Settings)  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AnimeKaizoku/SaitamaRobot/graphs/commit-activity) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://perso.crans.org/besson/LICENSE.html) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) [![Updates channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/Steins_updates)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51)](https://app.codacy.com/gh/AnimeKaizoku/SaitamaRobot?utm_source=github.com&utm_medium=referral&utm_content=AnimeKaizoku/SaitamaRobot&utm_campaign=Badge_Grade_Settings)  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AnimeKaizoku/SaitamaRobot/graphs/commit-activity) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://perso.crans.org/besson/LICENSE.html) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) [![Updates channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/kurisuupdates)
 
 
 A modular Telegram Python bot running on python3 with a sqlalchemy database and an entirely themed persona to make Saitama suitable for Anime and Manga group chats. 
@@ -9,7 +9,7 @@ Can be found on telegram as [Kurisu_Makise_robot](https://t.me/Kurisu_Makise_rob
 
 The Support group can be reached out to at [Kurisu Support](https://t.me/Kurisu_Makise_support), where you can ask for help about [kurisu_makise_robot](https://t.me/Kurisu_Makise_robot), discover/request new features, report bugs, and stay in the loop whenever a new update is available. 
 
-News channel as at [steins Updates](https://t.me/steins_updates) 
+News channel as at [steins Updates](https://t.me/kurisuupdates) 
 
 ## How to setup/deploy.
 
@@ -165,7 +165,7 @@ You can use [nssm](https://nssm.cc/usage) to install the bot as service on windo
 Make sure to edit the start and restart bats to your needs. 
 Note: the restart bat requires that User account control be disabled.
 
-For queries or any issues regarding the bot please open an issue ticket or visit us at [One Punch Support](https://t.me/OnePunchSupport)
+For queries or any issues regarding the bot please open an issue ticket or visit us at [One Punch Support](https://t.me/kurisusupport)
 ## How to setup on Heroku 
 For starters click on this button 
 
@@ -180,4 +180,4 @@ Also, missing proper credit for blacklistusers taken from TheRealPhoenixBot (wil
 
 Any other authorship/credits can be seen through the commits.
 
-Should any be missing kindly let us know at [Kurisu_Makise_support](https://t.me/Kurisu_Makise_support) or simply submit a pull request on the readme.
+Should any be missing kindly let us know at [Kurisu_Makise_support](https://t.me/Kurisusupport) or simply submit a pull request on the readme.
