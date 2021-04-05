@@ -154,8 +154,14 @@ def kang(update: Update, context: CallbackContext):
                     emojis=sticker_emoji,
                 )
                 msg.reply_text(
-                    f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
-                    + f"\nEmoji is: {sticker_emoji}",
+                    f"Sticker emoji: {sticker_emoji}",
+                    reply_markup=InlineKeyboardMarkup([
+                  [
+                    InlineKeyboardButton(text="Your pack", url=f"t.me/addstickers/{packname}")
+                  ],
+                
+                ]),
+                   
                     parse_mode=ParseMode.MARKDOWN,
                 )
 
