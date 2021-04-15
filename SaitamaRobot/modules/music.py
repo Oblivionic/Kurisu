@@ -4,7 +4,7 @@ import os
 from pyrogram import Client, filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.types import Message
-from SaitamaRobot.utils.ut import get_arg
+from SaitamaRobot.utlis.ut import get_arg
 from SaitamaRobot import pbot
 
 @pbot.on_message(filters.command("song"))
