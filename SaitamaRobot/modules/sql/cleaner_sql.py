@@ -1,8 +1,7 @@
 import threading
 
-from sqlalchemy import Column, UnicodeText, Boolean
-
 from SaitamaRobot.modules.sql import BASE, SESSION
+from sqlalchemy import Boolean, Column, UnicodeText
 
 
 class CleanerBlueTextChatSettings(BASE):
@@ -71,8 +70,7 @@ def set_cleanbt(chat_id, is_enable):
 def chat_ignore_command(chat_id, ignore):
     ignore = ignore.lower()
     with CLEANER_CHAT_LOCK:
-        ignored = SESSION.query(CleanerBlueTextChat).get(
-            (str(chat_id), ignore))
+        ignored = SESSION.query(CleanerBlueTextChat).get((str(chat_id), ignore))
 
         if not ignored:
 
@@ -94,8 +92,7 @@ def chat_ignore_command(chat_id, ignore):
 def chat_unignore_command(chat_id, unignore):
     unignore = unignore.lower()
     with CLEANER_CHAT_LOCK:
-        unignored = SESSION.query(CleanerBlueTextChat).get(
-            (str(chat_id), unignore))
+        unignored = SESSION.query(CleanerBlueTextChat).get((str(chat_id), unignore))
 
         if unignored:
 
@@ -189,16 +186,14 @@ def __load_cleaner_list():
 
     try:
         for x in SESSION.query(CleanerBlueTextChatSettings).all():
-            CLEANER_CHATS.setdefault(
-                x.chat_id, {"setting": False, "commands": set()})
+            CLEANER_CHATS.setdefault(x.chat_id, {"setting": False, "commands": set()})
             CLEANER_CHATS[x.chat_id]["setting"] = x.is_enable
     finally:
         SESSION.close()
 
     try:
         for x in SESSION.query(CleanerBlueTextChat).all():
-            CLEANER_CHATS.setdefault(
-                x.chat_id, {"setting": False, "commands": set()})
+            CLEANER_CHATS.setdefault(x.chat_id, {"setting": False, "commands": set()})
             CLEANER_CHATS[x.chat_id]["commands"].add(x.command)
     finally:
         SESSION.close()
