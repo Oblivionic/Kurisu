@@ -4,8 +4,18 @@ import os
 from pyrogram import Client, filters
 from pyrogram.errors import PeerIdInvalid
 from pyrogram.types import Message
-from SaitamaRobot.utlis.ut import get_arg
 from SaitamaRobot import pbot
+from pytube import YouTube
+from youtube_search import YoutubeSearch
+from youtubesearchpython import VideosSearch
+
+def get_arg(message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
 
 @pbot.on_message(filters.command("song"))
 async def song(client, message):
