@@ -33,6 +33,7 @@ cachetools
 fontTools
 nekos.py
 youtube_dl
+youtube_search
 pytube
 youtube-search-python
 pyrogram>=1.0.7
