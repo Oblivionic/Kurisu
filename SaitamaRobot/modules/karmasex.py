@@ -1,4 +1,4 @@
-from SaitamaRobot import pgram
+from SaitamaRobot import pbot
 from SaitamaRobot.utils.dbfunctions import (update_karma, get_karma, get_karmas,
                                    int_to_alpha, alpha_to_int)
 from SaitamaRobot.utils.filter_groups import karma_positive_group, karma_negative_group
@@ -15,7 +15,7 @@ regex_upvote = r"^((?i)\+|\+\+|\+1|thank you|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎)$"
 
 
-@pgram.on_message(
+@pbot.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -48,7 +48,7 @@ async def upvote(_, message):
     )
 
 
-@pgram.on_message(
+@pbot.on_message(
     filters.text
     & filters.group
     & filters.incoming
@@ -81,7 +81,7 @@ async def downvote(_, message):
     )
 
 
-@pgram.on_message(filters.command("karma") & filters.group)
+@pbot.on_message(filters.command("karma") & filters.group)
 
 async def karma(_, message):
     chat_id = message.chat.id
