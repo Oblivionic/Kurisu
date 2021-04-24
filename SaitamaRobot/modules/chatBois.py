@@ -1,4 +1,4 @@
-from SaitamaRobot import pgram, arq, BOT_ID, DRAGONS
+from SaitamaRobot import pbot, arq, BOT_ID, DRAGONS
 from SaitamaRobot.utils.errors import capture_err
 from SaitamaRobot.utils.filter_groups import chatbot_group
 from pyrogram import filters
@@ -15,7 +15,7 @@ active_chats_ubot = []
 # Enabled | Disable Chatbot
 
 
-@pgram.on_message(filters.command("chatbot") & ~filters.edited)
+@pbot.on_message(filters.command("chatbot") & ~filters.edited)
 @capture_err
 async def chatbot_status(_, message):
     global active_chats_bot
@@ -47,7 +47,7 @@ async def chatbot_status(_, message):
         await message.reply_text("**Usage**\n/chatbot [ON|OFF]")
 
 
-@pgram.on_message(filters.text & filters.reply & ~filters.bot &
+@pbot.on_message(filters.text & filters.reply & ~filters.bot &
                 ~filters.via_bot & ~filters.forwarded, group=chatbot_group)
 @capture_err
 async def chatbot_talk(_, message):
