@@ -6,6 +6,8 @@ import spamwatch
 from pyrogram import Client, errors
 import telegram.ext as tg
 from telethon import TelegramClient
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+from Python_ARQ import ARQ
 
 StartTime = time.time()
 
@@ -86,6 +88,8 @@ if ENV:
     TIME_API_KEY = os.environ.get('TIME_API_KEY', None)
     AI_API_KEY = os.environ.get('AI_API_KEY', None)
     WALL_API = os.environ.get('WALL_API', None)
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    ARQ_API = os.environ.get("ARQ_API_BASE_URL", None)
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
@@ -177,6 +181,9 @@ else:
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("saitama", API_ID, API_HASH)
 pbot = Client("KurisuPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+mongo_client = MongoClient(MONGO_DB_URI)
+db = mongo_client.SaitamaRobot
+arq = ARQ(ARQ_API)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
