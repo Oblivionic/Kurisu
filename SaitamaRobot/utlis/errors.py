@@ -1,7 +1,7 @@
 import sys
 import traceback
 from functools import wraps
-from SaitamaRobot import pgram, EVENT_LOGS
+from SaitamaRobot import pbot, EVENT_LOGS
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
 
@@ -30,7 +30,7 @@ def capture_err(func):
         try:
             return await func(client, message, *args, **kwargs)
         except ChatWriteForbidden:
-            await pgram.leave_chat(message.chat.id)
+            await pbot.leave_chat(message.chat.id)
             return
         except Exception as err:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -46,7 +46,7 @@ def capture_err(func):
                 ),
             )
             for x in error_feedback:
-                await pgram.send_message(
+                await pbot.send_message(
                     EVENT_LOGS,
                     x
                 )
