@@ -1,7 +1,7 @@
 from SaitamaRobot import pbot
-from SaitamaRobot.utils.dbfunctions import (update_karma, get_karma, get_karmas,
+from SaitamaRobot.utlis.dbfunctions import (update_karma, get_karma, get_karmas,
                                    int_to_alpha, alpha_to_int)
-from SaitamaRobot.utils.filter_groups import karma_positive_group, karma_negative_group
+from SaitamaRobot.utlis.filter_groups import karma_positive_group, karma_negative_group
 from pyrogram import filters
 
 __MODULE__ = "Karma"
