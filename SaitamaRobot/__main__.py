@@ -12,6 +12,7 @@ from SaitamaRobot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
 from SaitamaRobot.modules import ALL_MODULES
 from SaitamaRobot.modules.helper_funcs.chat_status import is_user_admin
 from SaitamaRobot.modules.helper_funcs.misc import paginate_modules
+import SaitamaRobot.modules.sql.users_sql as sql
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.error import (BadRequest, ChatMigrated, NetworkError,
@@ -51,20 +52,24 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*Hey {}, I am {}!* 
-*A multipurpose group management bot, themed from* [Steins;Gate](https://anilist.co/anime/9253)!
+*Eureka! {}, myself {}!* 
+*An Anime themed group management bot from* [Steins;Gate](https://anilist.co/anime/9253)!!
 
+• *Uptime:* `{}`
+• `{}` *users, across* `{}` *chats.*
 """
 
 HELP_STRINGS = """
-💝 [Kurisu](https://telegra.ph/file/1f6e348461d5a7eed0df7.gif) 💝 comes with :-
-*AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters* and *NSFW* functions!
-• __All commands can either be used with__ `/` __or__ `!`.
+*{} comes with:*
+*AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters*, *NSFW* *and more!*
+
+[🎛](https://telegra.ph/file/2291942331f135e3292ee.png) *All commands can either be used with* `/` *or* `!`.
+🎛 *Reach out for support:* @KurisuSupport
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-KURISU_IMG = "https://telegra.ph/file/083b9d84ba26180dcbffb.gif"
+KURISU_IMG = "https://telegra.ph/file/6152bf2f73ca8ea30772a.png"
 KURISUIMGSTART = "https://telegra.ph/file/bd01a439fefb53170b36f.gif"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
@@ -181,39 +186,39 @@ def start(update: Update, context: CallbackContext):
                 KURISU_IMG,
                 caption=PM_START_TEXT.format(
                     escape_markdown(first_name),
-                    escape_markdown(context.bot.first_name)),
+                    escape_markdown(context.bot.first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="☑️ Add Kurisu to your group",
+                            text="➕ Add Kurisu To Your Group",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username))
                     ],
                      [
                          InlineKeyboardButton(
-                             text="🚑 Kurisu Support",
+                             text="⚙️ Support",
                              url=f"https://t.me/{SUPPORT_CHAT}"),
                          InlineKeyboardButton(
-                             text="🧭 Steins Updates",
-                             url="https://t.me/steinsupdates"),              
+                             text="🎉 Updates",
+                             url="https://t.me/steinsupdates"),
+                         InlineKeyboardButton(
+                             text="🗃 Guide",
+                             url="https://t.me/Steinsupdates/7"),
+              
                     ],
                      [
                         InlineKeyboardButton(
-                             text="🔘 Getting Started Guide",
-                             url="https://t.me/Steinsupdates/7")                    
-                    ],
-                     [
-                        InlineKeyboardButton(
-                             text="🀄️ IAS - Anime Chatroom 🀄️",
-                             url="https://t.me/animechatsofficialgrp")                    
-                    ],                     
-                      [
+                             text="Anime Chat",
+                             url="https://t.me/ias_chats"),                    
                         InlineKeyboardButton(
                              text="Help & Commands",
-                             url="https://t.me/Kurisu_Makise_Robot?start=help")      
-                    ]]))
+                             url="https://t.me/Kurisu_Makise_Robot?start=help"),      
+                    ]))
     else:
         update.effective_message.reply_video(
                 KURISUIMGSTART)
