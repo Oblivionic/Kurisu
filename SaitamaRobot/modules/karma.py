@@ -4,14 +4,8 @@ from SaitamaRobot.utlis.dbfunctions import (update_karma, get_karma, get_karmas,
 from SaitamaRobot.utlis.filter_groups import karma_positive_group, karma_negative_group
 from pyrogram import filters
 
-__MODULE__ = "Karma"
-__HELP__ = """[UPVOTE] - Use upvote keywords like "+", "+1", "thanks" etc to upvote a message.
-[DOWNVOTE] - Use downvote keywords like "-", "-1", etc to downvote a message.
-Reply to a message with /karma to check a user's karma
-Send /karma without replying to any message to chek karma list of top 10 users"""
 
-
-regex_upvote = r"^((?i)\+|\+\+|\+1|thank you|👍)$"
+regex_upvote = r"^((?i)\+|\+\+|\+1|thank you|thanks|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎)$"
 
 
@@ -116,3 +110,10 @@ async def karma(_, message):
         else:
             karma = 0
             await message.reply_text(f'**Total Points**: __{karma}__')
+
+
+__mod_name__ = "Karma"
+__help__ = """*Upvote* - Use upvote keywords like "+", "+1", "thanks", etc. to upvote a message.
+*Downvote* - Use downvote keywords like "-", "-1", etc. to downvote a message.
+Reply to a message with `/karma` to check a user's reputation.
+Send `/karma` without replying to any message to check reputation list of top 10 users."""
