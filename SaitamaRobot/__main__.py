@@ -218,7 +218,7 @@ def start(update: Update, context: CallbackContext):
                         InlineKeyboardButton(
                              text="Help & Commands",
                              url="https://t.me/Kurisu_Makise_Robot?start=help"),      
-                    ]))
+                    ]]))
     else:
         update.effective_message.reply_video(
                 KURISUIMGSTART)
