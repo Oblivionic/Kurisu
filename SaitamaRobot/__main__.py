@@ -182,7 +182,7 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_animation(
+            update.effective_message.reply_photo(
                 KURISU_IMG,
                 caption=PM_START_TEXT.format(
                     escape_markdown(first_name),
