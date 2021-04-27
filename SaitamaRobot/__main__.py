@@ -59,12 +59,12 @@ PM_START_TEXT = """
 • `{}` *users, across* `{}` *chats.*
 """
 
-HELP_STRINGS = """
+HELP_STRINGS = f"""
 *{} comes with:*
 *AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters*, *NSFW* *and more!*
 
-[🎛](https://telegra.ph/file/2291942331f135e3292ee.png) *All commands can either be used with* `/` *or* `!`.
-🎛 *Reach out for support:* @KurisuSupport
+🎛 *All commands can either be used with* `/` *or* `!`.
+🎛 *Reach out for support:* @KurisuSupport [.](https://telegra.ph/file/2291942331f135e3292ee.png)
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
