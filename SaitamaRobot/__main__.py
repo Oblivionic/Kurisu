@@ -59,7 +59,7 @@ PM_START_TEXT = """
 • `{}` *users, across* `{}` *chats.*
 """
 
-HELP_STRINGS = f"""
+HELP_STRINGS = """
 *{} comes with:*
 *AI Chatbot*, *Anime*, *Music*, *Notes*, *Filters*, *NSFW* *and more!*
 
