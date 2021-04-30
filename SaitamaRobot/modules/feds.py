@@ -289,7 +289,7 @@ def leave_fed(update: Update, context: CallbackContext):
 
 
 @run_async
-def user_join_fed(update: Update, context: CallbackContext):
+def user_join_fed(update, context):
     bot, args = context.bot, context.args
     chat = update.effective_chat
     user = update.effective_user
@@ -302,7 +302,7 @@ def user_join_fed(update: Update, context: CallbackContext):
 
     fed_id = sql.get_fed_id(chat.id)
 
-    if is_user_fed_owner(fed_id, user.id) or user.id in DRAGONS:
+    if is_user_fed_owner(fed_id, user.id) or user.id in SUDO_USERS:
         user_id = extract_user(msg, args)
         if user_id:
             user = bot.get_chat(user_id)
@@ -336,16 +336,69 @@ def user_join_fed(update: Update, context: CallbackContext):
             update.effective_message.reply_text(
                 "I already am a federation admin in all federations!")
             return
-        res = sql.user_join_fed(fed_id, user_id)
-        if res:
-            update.effective_message.reply_text("Successfully Promoted!")
-        else:
-            update.effective_message.reply_text("Failed to promote!")
+        member = chat.get_member(int(user_id))
+        print(user_id)
+        update.effective_message.reply_text(
+            "Please get {} to confirm that they would like to be fed admin for dev testing fed.".format(mention_html(member.user.id, member.user.first_name)),
+            reply_markup=InlineKeyboardMarkup(
+                                    [
+                                       [
+                                       InlineKeyboardButton(text="Confirm", callback_data=f"fpromote_confirm={user_id}"),
+                                       InlineKeyboardButton(text="Cancel", callback_data=f"fpromote_del={user_id}")
+                                       ]
+                                    ]
+                                   ),
+            parse_mode=ParseMode.HTML                                                                                                 
+        )
+
     else:
         update.effective_message.reply_text(
             "Only federation owners can do this!")
 
-
+def fpro_callback(update,context):
+    chat = update.effective_chat 
+    fed_name = sql.get_fed_name(chat.id)
+    fed_id = sql.get_fed_id(chat.id)
+    query = update.callback_query
+    splitter = query.data.split("=")
+    query_match = splitter[0]
+    user_id = splitter[1]
+    member = chat.get_member(int(user_id))
+    if query_match == "fpromote_confirm":
+        if int(user_id) == query.from_user.id:
+            res = sql.user_join_fed(fed_id, int(user_id))
+            if res:
+                fban = sql.get_fban_user(fed_id, user_id)
+                if fban:
+                    info = sql.get_fed_info(fed_id)
+                    fed_name = info['fname']
+                query.message.edit_text("User {} is now an admin of {} ({})"
+                                                    .format(mention_html(member.user.id, member.user.first_name),
+                                                            fed_name, fed_id),
+                                        parse_mode=ParseMode.HTML
+                                        )
+            else:
+                query.message.edit_text("Failed to promote!")
+        else:
+            context.bot.answer_callback_query(query.id,
+                                              text="You're not the user being promoted!")
+    elif query_match == "fpromote_del":     
+        if int(user_id) == query.from_user.id:
+            query.message.edit_text(
+                "Fedadmin promotion cancelled by {}."
+                .format(mention_html(member.user.id, member.user.first_name),
+                                                            fed_id,fed_name),
+                                        parse_mode=ParseMode.HTML
+                                    
+            )
+            context.bot.answer_callback_query(query.id,
+                                              text="Cancelled!"
+                                              )  
+        else:
+             context.bot.answer_callback_query(query.id,
+                                              text="You don't have enough permissions to cancel this."
+                                              )  
+        
 @run_async
 def user_demote_fed(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
